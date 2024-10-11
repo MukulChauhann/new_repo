@@ -49,3 +49,77 @@ Commit simple text files representing code for features (e.g., feature1.txt, fea
 **Merging:**
 Merge feature branches into the develop branch.
 Merge the release/v1.0.0 branch into main on the 25th
+
+
+
+# GIT CODE
+
+**Initialize the repository and set up the main branch:**
+mkdir git-workflow-simulation
+cd git-workflow-simulation
+git init
+echo "# Git Workflow Simulation" > README.md
+git add README.md
+git commit -m "Initial commit on main branch"
+git branch -M main
+git remote add origin https://github.com/MukulChauhann/new_repo.git
+git push -u origin main
+
+**Create and switch to the develop branch**
+git checkout -b develop
+echo "This is feature1" > feature1.txt
+echo "This is feature2" > feature2.txt
+git add feature1.txt feature2.txt
+git commit -m "Add initial feature files on develop branch"
+git push -u origin develop
+
+**Create feature branches (feature/feature1, feature/feature2)**
+*For Feature 1*
+git checkout -b feature/feature1
+echo "Feature 1 development" > feature1.txt
+git add feature1.txt
+git commit -m "Develop feature1"
+git push -u origin feature/feature1
+
+*For Feature 2*
+git checkout develop
+git checkout -b feature/feature2
+echo "Feature 2 development" > feature2.txt
+git add feature2.txt
+git commit -m "Develop feature2"
+git push -u origin feature/feature2
+
+**Merge feature branches back into develop**
+*Merging feature1 into develop*
+git checkout develop
+git merge feature/feature1
+git push origin develop
+
+*Merging feature2 into develop*
+git merge feature/feature2
+git push origin develop
+
+**Create a release branch from develop**
+git checkout develop
+git checkout -b release/v1.0.0
+echo "Release notes for version 1.0.0" > release_notes.txt
+git add release_notes.txt
+git commit -m "Prepare release v1.0.0"
+git push -u origin release/v1.0.0
+
+**Merge the release branch into main for the final release on the 25th**
+git checkout main
+git merge release/v1.0.0
+git tag v1.0.0
+git push origin main --tags
+
+**Delete the feature and release branches after merging (optional)**
+git branch -d feature/feature1
+git branch -d feature/feature2
+git branch -d release/v1.0.0
+git push origin --delete feature/feature1
+git push origin --delete feature/feature2
+git push origin --delete release/v1.0.0
+
+
+
