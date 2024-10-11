@@ -11,15 +11,15 @@ The branch where the integration of new features and bug fixes happens.
 Regular updates are merged into the develop branch from feature branches.
 It serves as a base for testing and QA.
 
-**Feature Branches** (Feature/xyz)
+**Feature Branches**
 Each new feature or bug fix gets its own branch, created off the develop branch.
 Once completed and tested locally, they are merged back into the develop branch.
 
-**Release Branches** (Release/v1.x.x)
+**Release Branches**
 Before the 25th of the month, a release branch is created from develop. This branch will be used for final testing, bug fixing, and preparing for deployment.
 No new features should be added to this branch, only fixes and final preparations for the release.
 
-**Hotfix Branches** (Hotfix/xyz)
+**Hotfix Branches**
 For emergency bug fixes that need to be applied directly to the main branch. After applying a fix, it should also be merged back into develop and the relevant release branch (if it exists).
 
 **Version Tags**
